@@ -1,4 +1,4 @@
-package com.example.injectdemo;
+package com.d3.util.view;
 
 import java.lang.reflect.Field;
 
@@ -44,10 +44,10 @@ public abstract class D3Activity extends Activity {
 					if(field.get(activity)!= null )
 						continue;
 				
-					ViewInject viewInject = field.getAnnotation(ViewInject.class);
-					if(viewInject!=null){
+					D3View d3View = field.getAnnotation(D3View.class);
+					if(d3View!=null){
 						
-						int viewId = viewInject.id();
+						int viewId = d3View.id();
 						if(viewId == 0)
 							viewId = getResources().getIdentifier(field.getName(), "id",getPackageName());
 						if(viewId == 0)
@@ -56,10 +56,10 @@ public abstract class D3Activity extends Activity {
 						//关键,注解初始化，相当于 backBtn = (TextView) findViewById(R.id.back_btn);
 					    field.set(activity,sourceView.findViewById(viewId));  
 					    //事件
-					    setListener(activity,field,viewInject.click(),Method.Click);
-						setListener(activity,field,viewInject.longClick(),Method.LongClick);
-						setListener(activity,field,viewInject.itemClick(),Method.ItemClick);
-						setListener(activity,field,viewInject.itemLongClick(),Method.itemLongClick);
+					    setListener(activity,field,d3View.click(),Method.Click);
+						setListener(activity,field,d3View.longClick(),Method.LongClick);
+						setListener(activity,field,d3View.itemClick(),Method.ItemClick);
+						setListener(activity,field,d3View.itemLongClick(),Method.itemLongClick);
 					}
 				} catch (Exception e) {
 					e.printStackTrace();

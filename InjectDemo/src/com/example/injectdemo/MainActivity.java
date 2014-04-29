@@ -8,8 +8,9 @@ import android.widget.Toast;
 
 public class MainActivity extends D3Activity {
     
-	@ViewInject(id = R.id.input) EditText editText;
-	@ViewInject(click="btnClick") TextView btn1,btn2,btn3;
+	//@D3View EditText input;
+	@D3View(id = R.id.input) EditText editText;
+	@D3View(click="btnClick") TextView btn1,btn2,btn3;
 	
     public void onCreate(Bundle savedInstanceState) {  
         super.onCreate(savedInstanceState);  

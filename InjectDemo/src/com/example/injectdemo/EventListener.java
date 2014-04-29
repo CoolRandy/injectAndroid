@@ -1,4 +1,4 @@
-package com.example.injectdemo;
+package com.d3.community;
 
 import java.lang.reflect.Method;
 
